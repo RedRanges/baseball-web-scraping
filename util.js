@@ -17,6 +17,7 @@ module.exports = class Util {
       const year = date.getFullYear();
       return month + '-' + dayOfMonth + '-' + year
     }
+    
 }
 
 

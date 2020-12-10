@@ -12,7 +12,6 @@ module.exports = class GamePage {
     this.homeTeam = '';
     this.awayTeam = '';
     this.gameDate = '';
-
   }
 
   clickHomeBatters = async( page ) => {
@@ -63,7 +62,7 @@ module.exports = class GamePage {
         pitch.awayTeam = this.getAwayTeam();
         pitch.homeTeam = this.getHomeTeam();
         this.pitches.push( pitch );
-        fs.appendFile( './logs/unhoverable-pitch.txt', `${ this.util.getCurrentTimeStamp() } : UNHOVERABLE PITCH ON: ${ pitch.date }\n` + 
+        fs.appendFile( `./logs/${ this.util.getCurrentDay() }-unhoverable-pitch.txt`, `${ this.util.getCurrentTimeStamp() } : UNHOVERABLE PITCH ON: ${ pitch.date }\n` + 
                        `BETWEEN HOME TEAM : ${ pitch.homeTeam } and AWAY TEAM : ${ pitch.awayTeam } at PITCH INDEX : ${ i } \n`
                      + `PAGE : ${ page.url() }\n`, 
                           ( err ) => 
@@ -77,7 +76,6 @@ module.exports = class GamePage {
         maxRetries = 10;  
       }
     try {
-
       console.log( 'pitch index  :', i );
       let circle = circles [ i ];
       await circle.hover();
@@ -98,5 +96,4 @@ module.exports = class GamePage {
       }
     }
   }
-
 }

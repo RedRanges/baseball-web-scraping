@@ -151,8 +151,6 @@ module.exports = class Calendar {
       case 'December' :  
       return '12';
     }
-
-
   }
 
   getCurrentYear = async ( page ) => {
@@ -180,7 +178,6 @@ module.exports = class Calendar {
   }
 
   getDate = async ( selector ) => {
-
   }
-
+  
 }

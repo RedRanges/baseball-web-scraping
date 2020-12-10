@@ -8,16 +8,11 @@ const GamePage = require( './gamePage' );
 const fs = require( 'fs' );
 const Util = require( './util' );
 const secret = require( './secret.json' );
-
-const app = express();
-
-const util = new Util();
-
 const GameLinksArray = require( './gameLinksArray' );
 const config = require( './config.json' ); 
 
-
-
+const app = express();
+const util = new Util();
 
 const uri = `mongodb://${secret.dbUserName}:${secret.dbPassword}@localhost:27017/baseball-web-scraping?authSource=admin`;
 const homePageURL = 'https://baseballsavant.mlb.com';
@@ -64,7 +59,6 @@ MongoClient.connect(uri)
             }
             gameLinksArray.gameLinks = [];
         }
-          // console.log( gameLinksArray.gameLinks.length );
           await calendar.clickNextMonth( page );
         }
         const count = await collection.countDocuments();
@@ -130,7 +124,7 @@ MongoClient.connect(uri)
           await gamePage.clickHomeBatters( page );
           await gamePage.getPitches( page );
           if ( gamePage.pitches.length === 0 ) {
-            fs.appendFile( './logs/cancelled-games.txt', `${ util.getCurrentTimeStamp() } : CANCELLED GAME : ${gameUrl.url} at GAME NUMBER : ${ gameNumber } \n`, ( err ) => 
+            fs.appendFile( `./logs/${ util.getCurrentDay() }-cancelled-games.txt`, `${ util.getCurrentTimeStamp() } : CANCELLED GAME : ${gameUrl.url} at GAME NUMBER : ${ gameNumber } \n`, ( err ) => 
             {
               if ( err ) throw err 
               console.log( util.getCurrentTimeStamp(), 'cancelled game : ', gameUrl.url ); 
@@ -149,7 +143,7 @@ MongoClient.connect(uri)
             console.log( 'cancelled game : ', gameUrl.url );
           } else {
             console.log( util.getCurrentTimeStamp(), 'inserting :', gamePage.pitches.length, 'pitches' );
-            fs.appendFile( './logs/completed-games.txt', `${ util.getCurrentTimeStamp() } : COMPLETED GAME NUMBER : ${ gameNumber } at ${ page.url() }\n`, 
+            fs.appendFile( `./logs/${ util.getCurrentDay() }-completed-games.txt`, `${ util.getCurrentTimeStamp() } : COMPLETED GAME NUMBER : ${ gameNumber } at ${ page.url() }\n`, 
             ( err ) => { 
               if ( err ) throw err 
             }
