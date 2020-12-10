@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baseball</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+  <button id="scrapeGamesButton" >Scrape Games</button>
+  <button id="displayUrlsButton" >Display URLs</button>
+  <button id='drop-game-urls-button'>Drop Games</button>
+  <button id='count-urls-button'>Count Urls</button>
+	<button id=display-calendar-button>Display Calendar</button>
+	<button id='count-pitches-button'>Count Pitches</button>
+	<br>
+	<br>
+   <svg  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 320" height="100" width="100"  xml:space="preserve">
+<g>
+	<path style="fill:#EBEBEB;" d="M150.219,0c82.968,0,150.219,67.261,150.219,150.219c0,82.968-67.242,150.219-150.219,150.219
+		C67.27,300.439,0,233.197,0,150.219C0.009,67.27,67.27,0,150.219,0z"/>
+	<g>
+		<path style="fill:#BF392C;" d="M150.219,197.163c-45.188,0-85.625,20.064-113.162,51.638c6.178,7.098,12.985,13.585,20.373,19.397
+			c22.392-26.204,55.628-42.869,92.789-42.869s70.397,16.665,92.779,42.869c7.389-5.812,14.215-12.309,20.392-19.397
+			C235.854,217.226,195.417,197.163,150.219,197.163z M243.008,32.25c-22.373,26.213-55.619,42.869-92.789,42.869
+			c-37.16,0-70.397-16.665-92.779-42.878c-7.38,5.83-14.205,12.327-20.383,19.397c27.537,31.602,67.974,51.647,113.162,51.647
+			S235.854,83.24,263.4,51.638C257.213,44.568,250.397,38.071,243.008,32.25z"/>
+	</g>
+	<path style="fill:#D3D3D3;" d="M178.385,291.05c-82.949,0-150.219-67.242-150.219-150.219c0-61.083,36.541-113.566,88.883-137.038
+		C50.079,18.928,0.009,78.677,0.009,150.219c0,82.968,67.261,150.219,150.219,150.219c21.885,0,42.606-4.769,61.346-13.182
+		C200.881,289.679,189.811,291.05,178.385,291.05z"/>
+	<path style="fill:#AC3327;" d="M37.855,50.812l-0.751,0.864c3.821,4.403,7.962,8.506,12.271,12.431
+		c4.854-8.121,10.384-15.792,16.637-22.833c-2.986-2.854-5.83-5.849-8.516-8.994l-1.643,1.343c-2.798,2.272-5.521,4.591-8.131,7.051
+		l-1.99,1.915C43.019,45.225,40.371,47.958,37.855,50.812z"/>
+	<path style="fill:#AC3327;" d="M57.393,229.601c-7.323,5.793-14.196,12.158-20.336,19.2c3.089,3.54,6.328,6.929,9.727,10.177
+		l0.056,0.038c3.371,3.211,6.891,6.272,10.553,9.173l0.047,0.038c5.558-6.506,11.792-12.412,18.58-17.66
+		C69.195,244.181,62.97,237.159,57.393,229.601z"/>
+</g>
+</svg>
+	<!-- <form action="/scrape-pitches" method="post"> -->
+		<label for="start">Start Game Number</label style="background-color:blue">
+		<input type="text" id="start-game-index-input">
+		<label for="end">End Game Number</label>
+		<input type="text" id="end-game-index-input" name="start">
+		<button id="submit-start-end-button">Scrape Pitches</button>
+	<!-- </form> -->
+	<div id="url-count-container"></div>
+	<div id="pitch-count-container"></div>
+  <div id='calendar-img-container'></div>
+  <div>
+    <table id="url-container">
+
+    </table>
+  </div>
+  <script type="text/javascript" src="js/client.js"></script>
+</body>
+</html>
