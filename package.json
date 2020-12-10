@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "nodemon": "^2.0.6",
+    "puppeteer": "^5.5.0"
+  },
+  "name": "baseball-web-scraping",
+  "version": "1.0.0",
+  "description": "scraping baseball data from baseball savant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon server.js"
+  },
+  "author": "RedRanges",
+  "license": "ISC"
+}
