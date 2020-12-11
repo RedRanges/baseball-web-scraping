@@ -89,15 +89,11 @@ module.exports = class Calendar {
   clickNextDay = async ( page, dayOfMonth ) => {   
     console.log( 'clicking next day' ); 
     await this.clickCalendar( page );
-    // await page.click( `div[class=${this.allDaysOutOfMonthSelectors[ 0 ]}]` );
     const day = this.allDaysInMonthSelectors[ this.currentDaySelected ];
-
     let date = `${this.year}-${ this.monthToNumber( this.month ) }-${ dayOfMonth }`
     console.log( dayOfMonth );
     this.date = `${this.monthToNumber( this.month )}-${dayOfMonth}-${ this.year}`;
-
     console.log( date );
-    
     const pageClick = page.click( `div[class="${day}"]` );
     try {
     const response = page.waitForResponse( response => response.url() === `https://baseballsavant.mlb.com/statcast-metrics?date=${date}` && response.status() === 200, { 'timeout' : 15000 } );
@@ -108,12 +104,9 @@ module.exports = class Calendar {
   } catch ( err ) {
     console.log( err );
   }
-    // await page.click( `div[class="${day}"]` );
-    // this.delay( 500 );
     console.log( day );
     await page.screenshot( { 'path' : './public/images/clickDay.png' } );
     this.currentDaySelected +=1
-    // dayOfMonth += 1;
   }
 
   getCurrentMonth = async ( page ) => {
@@ -179,5 +172,5 @@ module.exports = class Calendar {
 
   getDate = async ( selector ) => {
   }
-  
+
 }
